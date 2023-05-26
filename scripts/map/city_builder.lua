@@ -316,7 +316,7 @@ local function clearground(pt)
 end
 
 local function placeTileCity(pt)
-    clearground(pt)
+    -- clearground(pt)
 
     placeTile(pt)
     for i=-6,6 do
@@ -482,8 +482,10 @@ local function setShop(pt,dir,i,offset, nilwieght, city)
     local pigshops_spawners = FindTempEnts(spawners,newpt.x,newpt.z,1,{spawn})
 
     local ground = WorldSim:GetTile(math.floor(newpt.x), math.floor(newpt.z) )
+    -- local ground = TheWorld.Map:GetTileAtPoint(math.floor(newpt.x), math.floor(newpt.z) )
 
-    if #pigshops_spawners == 0 and WorldSim:IsLand(WorldSim:GetTile( math.floor(newpt.x), math.floor(newpt.z) )) then
+    -- if #pigshops_spawners == 0 and WorldSim:IsLand(WorldSim:GetTile( math.floor(newpt.x), math.floor(newpt.z) )) then
+    if #pigshops_spawners == 0 and not IsOceanTile(ground) then
         AddTempEnts(spawners,newpt.x,newpt.z,spawn,city.cityID)
     end
 end

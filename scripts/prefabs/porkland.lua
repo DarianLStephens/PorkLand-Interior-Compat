@@ -107,8 +107,8 @@ local function common_postinit(inst)
     -- Dedicated server does not require these components
     -- NOTE: ambient lighting is required by light watchers
     if not TheNet:IsDedicated() then
-        -- inst:AddComponent("dynamicmusic")
-        -- inst:AddComponent("ambientsound")
+        inst:AddComponent("dynamicmusic")
+        inst:AddComponent("ambientsound") -- DS - I'm guessing these were off to replace them?
         inst:AddComponent("dsp")
         inst:AddComponent("colourcube")
         inst.components.colourcube:AddPlSeasonColourCube()
